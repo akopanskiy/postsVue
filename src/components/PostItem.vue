@@ -5,13 +5,15 @@
     <div><strong>Зміст: </strong>{{post.body}}</div>
     </div>
     <div >
-        <button class="btn_dlt" @click="$emit('remove', post)">Видалити</button>
+        <my-button  @click="$emit('remove', post)">Видалити</my-button>
     </div>
     </div>
 </template>
 
 <script>
+
 export default {
+   
     props: {
         post: {
             type: Object,
@@ -30,12 +32,12 @@ export default {
   border: 2px solid green;
   margin-top: 10px;
 }
-.btn_dlt {
-width: 70px;
+/* .btn_dlt {
+  width: 70px;
   margin-top: 10px;
   padding: 5px;
   background: none;
   color: blue;
   border: 1px solid teal;
-}
+} */
 </style>

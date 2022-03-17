@@ -6,20 +6,27 @@
      
        type="text" 
        placeholder="Назва">
-       
+
       <input 
        v-model="post.body"
        type="text" 
        placeholder="Зміст">
        <!-- v-bind:value="post.body" 
       @input="post.body = $event.target.value" -->
-      <button @click="createPost" class="btn">Створити</button>
+      <my-button @click="createPost" >
+          Створити
+      </my-button>
+      <!-- <my-button @click="closeModal">Close</my-button> -->
     </form>
 </template>
 
 <script>
-import shortid from "shortid"
+import shortid from "shortid";
+import MyButton from './UI/MyButton.vue';
+
 export default {
+  components: { MyButton },
+    
     data () {
         return {
             post: {
@@ -37,7 +44,9 @@ export default {
           body: ''
       }
     },
-   
+   closeModal() {
+        this.$emit('update:show', false)
+    }
   }
 }
 </script>
@@ -48,17 +57,10 @@ display: flex;
 flex-direction: column;
 }
 input {
-  width: 50%;
+  width: 100%;
   padding: 10px 15px;
   margin-top: 15px;
   border: 1px solid tomato;
 }
-.btn {
-  width: 70px;
-  margin-top: 10px;
-  padding: 5px;
-  background: none;
-  color: blue;
-  border: 1px solid teal;
-}
+
 </style>
