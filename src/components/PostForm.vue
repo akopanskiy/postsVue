@@ -1,14 +1,11 @@
 <template>
     <form @submit.prevent>
       <h4>Написання поста</h4>
-      <input 
-      v-model="post.title"
-     
+      <input v-model="post.title"
        type="text" 
        placeholder="Назва">
 
-      <input 
-       v-model="post.body"
+      <input v-model="post.body"
        type="text" 
        placeholder="Зміст">
        <!-- v-bind:value="post.body" 
@@ -16,13 +13,15 @@
       <my-button @click="createPost" >
           Створити
       </my-button>
-      <!-- <my-button @click="closeModal">Close</my-button> -->
+      
+      <my-button @click="closeModal">Close</my-button>
     </form>
 </template>
 
 <script>
 import shortid from "shortid";
 import MyButton from './UI/MyButton.vue';
+
 
 export default {
   components: { MyButton },
@@ -46,7 +45,8 @@ export default {
     },
    closeModal() {
         this.$emit('update:show', false)
-    }
+    },
+    
   }
 }
 </script>

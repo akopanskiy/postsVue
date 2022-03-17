@@ -4,7 +4,7 @@
    <!-- @click="closeModal" -->
       <div class="modal_content">
           <slot></slot>
-          <my-button @click="closeModal">Close</my-button>
+          <!-- <my-button @click="closeModal">Close</my-button> -->
       </div>
   </div>
 </template>
